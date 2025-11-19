@@ -17,6 +17,9 @@ body {
   text-align: center;
   min-width: 370px;
 }
+h1, h2, h3, h4 {
+  font-weight: 700;
+}
 .wrapper {
   width: 100%;
   max-width: 100%;
@@ -43,6 +46,12 @@ footer {
   display: block;
   margin: 3rem 0;
   padding-left: 3rem;
+}
+.footer-nav {
+  margin-bottom: 0.5rem;
+}
+.footer-copyright {
+  font-size: 0.75rem;
 }
 #nav-contact .nav-contact a,
 #nav-publications .nav-publications a,
@@ -186,6 +195,191 @@ footer .social-icon {
 }
 #publications span {
   font-size: .7rem;
+}
+
+/* Portfolio */
+#portfolio {
+  max-width: 50rem;
+  margin-top: 2rem;
+}
+#portfolio .portfolio-bio {
+  margin: 1rem auto;
+  padding: 0 3rem;
+  text-align: left;
+  line-height: 1.4;
+}
+#portfolio .portfolio-bio p {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+  color: var(--main);
+}
+#portfolio .featured-project {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: rgba(26, 41, 102, 0.05);
+  border-left: 4px solid var(--alt);
+}
+#portfolio .featured-project h2 {
+  font-size: 1.3rem;
+  color: var(--alt);
+  margin-bottom: 1rem;
+}
+#portfolio .featured-content {
+  text-align: left;
+}
+#portfolio .featured-content p {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+#portfolio .featured-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+#portfolio .featured-content li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+#portfolio .featured-screenshots {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+#portfolio .screenshot-item {
+  flex: 1;
+  min-width: 150px;
+  max-width: 250px;
+  text-align: center;
+}
+#portfolio .screenshot-item a {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+#portfolio .screenshot-item a:hover {
+  transform: translateY(-5px);
+}
+#portfolio .screenshot-item img {
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--main);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: box-shadow 0.2s;
+}
+#portfolio .screenshot-item a:hover img {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+#portfolio .screenshot-caption {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  color: var(--main);
+  font-weight: 500;
+}
+#portfolio .portfolio-section {
+  margin: 3rem auto 2rem;
+  text-align: left;
+}
+#portfolio .portfolio-section h3 {
+  font-size: 1.2rem;
+  color: var(--main);
+  border-bottom: 2px solid var(--highlight);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+#portfolio .portfolio-list {
+  list-style: disc;
+  padding-left: 2rem;
+}
+#portfolio .portfolio-list li {
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  padding-left: 0.5rem;
+  border-left: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+#portfolio .portfolio-list li:hover {
+  border-left-color: var(--highlight);
+}
+#portfolio .portfolio-list strong {
+  color: var(--main);
+  font-weight: 700;
+}
+#portfolio .books-section {
+  margin: 3rem auto 2rem;
+}
+#portfolio .books-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem 1.5rem;
+  margin-top: 1.5rem;
+}
+#portfolio .book-item {
+  text-align: center;
+}
+#portfolio .book-item a img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+#portfolio .book-item a:hover img {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+#portfolio .book-info {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+#portfolio .book-info h4 {
+  font-size: 0.85rem;
+  margin: 0.5rem 0 0.25rem 0;
+  line-height: 1.3;
+}
+#portfolio .book-info h4 a {
+  color: var(--main);
+  text-decoration: none;
+}
+#portfolio .book-info h4 a:hover {
+  color: var(--alt);
+}
+#portfolio .book-info p {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.75rem;
+  margin: 0.25rem 0;
+  color: #666;
+  line-height: 1.3;
+}
+#portfolio .book-year {
+  font-weight: 500;
+  color: var(--highlight);
+}
+#portfolio .book-isbn {
+  font-size: 0.7rem;
+}
+#portfolio .book-publisher {
+  font-style: italic;
+}
+@media (max-width: 768px) {
+  #portfolio .books-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+  }
+}
+@media (max-width: 480px) {
+  #portfolio .books-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Resume */
