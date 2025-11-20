@@ -16,6 +16,84 @@
   <meta name="description" content="ogrady.ai | Writing Portfolio">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Block search engine indexing and AI scraping -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="bingbot" content="noindex, nofollow">
+  <meta name="GPTBot" content="noindex, nofollow">
+  <meta name="CCBot" content="noindex, nofollow">
+  <meta name="anthropic-ai" content="noindex, nofollow">
+  <meta name="Claude-Web" content="noindex, nofollow">
+  <meta name="Google-Extended" content="noindex, nofollow">
+  <meta name="PerplexityBot" content="noindex, nofollow">
+  <meta name="Applebot-Extended" content="noindex, nofollow">
+  <meta name="robots" content="noai, noimageai">
+
+  <!-- Stealthy bot detection and redirect -->
+  <script>
+  (function() {
+    try {
+      var ua = navigator.userAgent.toLowerCase();
+      var isBot = false;
+
+      // Check for common bot user agents
+      var botPatterns = [
+        'bot', 'crawl', 'spider', 'slurp', 'scrape', 'headless',
+        'phantom', 'puppeteer', 'selenium', 'webdriver', 'playwright',
+        'gptbot', 'chatgpt', 'ccbot', 'anthropic', 'claude',
+        'perplexity', 'bingpreview', 'facebookexternal', 'twitterbot',
+        'linkedinbot', 'whatsapp', 'telegrambot', 'discordbot',
+        'slackbot', 'bytespider', 'baiduspider', 'yandexbot',
+        'duckduckbot', 'archive.org', 'ia_archiver'
+      ];
+
+      for (var i = 0; i < botPatterns.length; i++) {
+        if (ua.indexOf(botPatterns[i]) !== -1) {
+          isBot = true;
+          break;
+        }
+      }
+
+      // Check for headless browser indicators
+      if (navigator.webdriver ||
+          window.navigator.webdriver ||
+          window.callPhantom ||
+          window._phantom ||
+          window.phantom ||
+          window.Buffer ||
+          window.emit ||
+          window.spawn) {
+        isBot = true;
+      }
+
+      // Check for missing features that real browsers have
+      if (!navigator.languages ||
+          !navigator.plugins ||
+          navigator.plugins.length === 0) {
+        isBot = true;
+      }
+
+      // Check for automation tools
+      if (window.document.documentElement.getAttribute('webdriver') ||
+          window.navigator.webdriver === true) {
+        isBot = true;
+      }
+
+      // Chrome headless detection
+      if (/HeadlessChrome/.test(ua)) {
+        isBot = true;
+      }
+
+      // If bot detected, silently redirect to homepage
+      if (isBot) {
+        window.location.replace('../index.html');
+      }
+    } catch(e) {
+      // Silently fail - don't break the page
+    }
+  })();
+  </script>
+
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/boilerplate.css">
   <link rel="stylesheet" href="../css/main.css">
@@ -451,7 +529,7 @@
       Copyright 2025 Jason O'Grady, All Rights Reserved.
     </div>
     <div style="text-align: right; font-size: 0.75em; color: #666; margin-top: 0.5em;">
-      Updated: 2025-11-20, 23:41 GMT
+      Updated: 2025-11-20, 23:45 GMT
     </div>
   </footer>
 
