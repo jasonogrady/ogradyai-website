@@ -56,8 +56,15 @@
 
   <style>
     @media (max-width: 768px) {
-      .portfolio-bio {
+      .portfolio-bio-desktop {
         display: none !important;
+      }
+      .portfolio-bio-mobile {
+        display: block !important;
+        font-size: 0.85em !important;
+        margin: 0.5em 0 1em 0 !important;
+        padding: 0 !important;
+        color: #666 !important;
       }
       .books-grid {
         display: none !important;
@@ -121,15 +128,23 @@
       .books-list-mobile {
         display: none !important;
       }
+      .portfolio-bio-mobile {
+        display: none !important;
+      }
     }
   </style>
 
   <main id="portfolio">
     <h1>Jason O'Grady - Writing Portfolio</h1>
 
-    <!-- Bio Section -->
-    <section class="portfolio-bio" style="padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0;">
-      <p style="font-size: 0.9em;">Jason O'Grady is a Senior Technical Writer with 15+ years of experience creating user-focused documentation for enterprise SaaS products. For more than a decade at Google, he's collaborated with Product Management, Engineering, and Design teams to deliver high-quality documentation across Ads, Security, and Payments.</p>
+    <!-- Mobile-only Short Bio -->
+    <section class="portfolio-bio-mobile">
+      <p>Senior Technical Writer, author of 8 books, 15+ years at Google documenting Ads, Security, and Payments.</p>
+    </section>
+
+    <!-- Desktop Bio Section -->
+    <section class="portfolio-bio-desktop" style="padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0;">
+      <p style="font-size: 0.9em;">Jason O'Grady is a Senior Technical Writer with 15+ years of experience creating user-focused documentation for enterprise SaaS products. Author of <a href="#books">eight books</a>, Jason has spent more than a decade at Google collaborating with Product Management, Engineering, and Design teams to deliver high-quality documentation across Ads, Security, and Payments—including <a href="#api-guides">API guides</a>, <a href="#developer-docs">developer documentation</a>, <a href="#help-centers">help content</a>, <a href="#videos">videos</a>, and <a href="#blogs">blog posts</a> (listed below).</p>
     </section>
 
     <!-- Featured -->
@@ -166,7 +181,7 @@
     </section>
 
     <!-- Books -->
-    <section class="portfolio-section books-section">
+    <section id="books" class="portfolio-section books-section">
       <h3>My books</h3>
       <div class="books-grid">
         <div class="book-item">
@@ -296,7 +311,7 @@
     </section>
 
     <!-- API Guide -->
-    <section class="portfolio-section">
+    <section id="api-guides" class="portfolio-section">
       <h3>API guides</h3>
       <ul class="portfolio-list">
         <li><strong><a href="https://developers.google.com/merchant/api" target="_blank">Google Merchant API Documentation</a></strong> - API reference for managing merchant data and product listings</li>
@@ -305,7 +320,7 @@
     </section>
 
     <!-- Developer Documentation -->
-    <section class="portfolio-section">
+    <section id="developer-docs" class="portfolio-section">
       <h3>Developer documentation</h3>
       <ul class="portfolio-list">
         <li><strong><a href="https://developers.google.com/merchant/api/reference/rest" target="_blank">Merchant API Reference (REST)</a></strong> - REST API reference for Google Merchant Center</li>
@@ -329,7 +344,7 @@
     </section>
 
     <!-- Google Analytics Help Center -->
-    <section class="portfolio-section">
+    <section id="help-centers" class="portfolio-section">
       <h3>Google Analytics help center</h3>
       <ul class="portfolio-list">
         <li><strong><a href="https://support.google.com/analytics/answer/2621230" target="_blank">Google Analytics: Mobile App Overview report</a></strong> - Mobile app performance metrics and user engagement</li>
@@ -397,7 +412,7 @@
     </section>
 
     <!-- Video Tutorials -->
-    <section class="portfolio-section">
+    <section id="videos" class="portfolio-section">
       <h3>Video tutorials</h3>
       <ul class="portfolio-list">
         <li><strong><a href="https://www.youtube.com/playlist?list=PLI5YfMzCfRtbgHPUPVBhIMzHbdJNvq8kN" target="_blank">Working with Google Optimize Video Playlist</a></strong> - Complete video series on A/B testing</li>
@@ -411,7 +426,7 @@
     </section>
 
     <!-- Blog Articles -->
-    <section class="portfolio-section">
+    <section id="blogs" class="portfolio-section">
       <h3>Blog posts</h3>
       <ul class="portfolio-list">
         <li><strong><a href="https://www.zdnet.com/article/four-privacy-settings-you-should-enable-in-ios-7-immediately/" target="_blank">Four Privacy Settings You Should Enable in iOS 7 Immediately</a></strong> - ZDNet article on mobile privacy best practices</li>
@@ -436,7 +451,7 @@
       Copyright 2025 Jason O'Grady, All Rights Reserved.
     </div>
     <div style="text-align: right; font-size: 0.75em; color: #666; margin-top: 0.5em;">
-      Updated: 2025-11-20, 23:26 GMT
+      Updated: 2025-11-20, 23:40 GMT
     </div>
   </footer>
 
