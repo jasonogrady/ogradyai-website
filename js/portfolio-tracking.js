@@ -121,12 +121,24 @@
     }
   });
 
-  // Track book cover image clicks
+  // Track book cover image clicks (desktop)
   document.querySelectorAll('.book-item a').forEach(function(bookLink) {
     bookLink.addEventListener('click', function(e) {
       const bookTitle = this.querySelector('img')?.alt || 'Unknown Book';
       trackEvent('book_click', {
-        book_title: bookTitle
+        book_title: bookTitle,
+        view_type: 'desktop_grid'
+      });
+    });
+  });
+
+  // Track mobile books list clicks
+  document.querySelectorAll('.books-list-mobile a').forEach(function(mobileBookLink) {
+    mobileBookLink.addEventListener('click', function(e) {
+      const bookTitle = this.textContent.trim();
+      trackEvent('book_click', {
+        book_title: bookTitle.substring(0, 100),
+        view_type: 'mobile_list'
       });
     });
   });
@@ -259,6 +271,33 @@
     });
   });
 
+  // Track contact intent (LinkedIn/Bluesky/Contact links)
+  const contactLinks = document.querySelectorAll('a[href*="linkedin.com"], a[href*="bsky.app"], a[href*="contact"]');
+  contactLinks.forEach(function(contactLink) {
+    // Track hover (shows interest)
+    contactLink.addEventListener('mouseenter', function() {
+      const platform = this.href.includes('linkedin') ? 'LinkedIn' :
+                       this.href.includes('bsky') ? 'Bluesky' :
+                       this.href.includes('contact') ? 'Contact Page' : 'Other';
+      trackEvent('contact_intent_hover', {
+        platform: platform,
+        link_url: this.href
+      });
+    });
+
+    // Track click (actual contact action)
+    contactLink.addEventListener('click', function() {
+      const platform = this.href.includes('linkedin') ? 'LinkedIn' :
+                       this.href.includes('bsky') ? 'Bluesky' :
+                       this.href.includes('contact') ? 'Contact Page' : 'Other';
+      trackEvent('contact_intent_click', {
+        platform: platform,
+        link_url: this.href,
+        link_text: this.textContent.trim()
+      });
+    });
+  });
+
   // Track copy/paste events (user copying content)
   document.addEventListener('copy', function(e) {
     const selectedText = window.getSelection().toString().trim();
@@ -308,7 +347,20 @@
     }
   });
 
-  // Initial page view tracking with metadata
+  // Extract UTM parameters from URL
+  function getUtmParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return {
+      utm_source: urlParams.get('utm_source') || 'none',
+      utm_medium: urlParams.get('utm_medium') || 'none',
+      utm_campaign: urlParams.get('utm_campaign') || 'none',
+      utm_term: urlParams.get('utm_term') || 'none',
+      utm_content: urlParams.get('utm_content') || 'none'
+    };
+  }
+
+  // Initial page view tracking with metadata and UTM parameters
+  const utmParams = getUtmParams();
   trackEvent('portfolio_page_view', {
     page_title: document.title,
     page_location: window.location.href,
@@ -316,7 +368,12 @@
     screen_width: window.screen.width,
     screen_height: window.screen.height,
     viewport_width: window.innerWidth,
-    viewport_height: window.innerHeight
+    viewport_height: window.innerHeight,
+    utm_source: utmParams.utm_source,
+    utm_medium: utmParams.utm_medium,
+    utm_campaign: utmParams.utm_campaign,
+    utm_term: utmParams.utm_term,
+    utm_content: utmParams.utm_content
   });
 
   // Track device orientation changes (mobile/tablet users)
