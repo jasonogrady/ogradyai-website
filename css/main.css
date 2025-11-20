@@ -388,6 +388,23 @@ footer .social-icon {
     grid-template-columns: 1fr;
   }
 }
+#portfolio .sunset-notice {
+  font-size: 0.8rem;
+  color: var(--highlight);
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+#portfolio .sunset-notice a {
+  color: var(--highlight);
+  text-decoration: none;
+}
+#portfolio .sunset-notice a:hover {
+  color: var(--alt);
+  text-decoration: underline;
+}
+#portfolio .sunset-url {
+  font-size: 0.7rem;
+}
 
 /* Resume */
 #resume {
