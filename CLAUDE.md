@@ -27,7 +27,6 @@ The site is a multi-page static website with the following pages:
 - `index.html` - Home page with personal intro
 - `contact.html` - Contact information and social links
 - `portfolio/` - Writing portfolio work (directory with index.html)
-- `publications.html` - Published works and books
 - `resume.html` - Professional resume/CV
 - `aqi.html` - Air Quality Index related content
 - `index2.html` - Alternate home page version
